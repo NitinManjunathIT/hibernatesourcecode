@@ -1,0 +1,10 @@
+package in.pwskills.nitin.bean;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="PERSON_ONE_TO_MANY_UNI")
+public class Person {
+
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Encapsulate field &apos;in.pwskills.nitin.bean.PhoneNumber.person&apos; in &apos;in.pwskills.nitin.bean.PhoneNumber&apos;&#x0D;&#x0A;- Original project: &apos;Hiberante-30-Association-Mapping-O2M(BI)&apos;&#x0D;&#x0A;- Original element: &apos;in.pwskills.nitin.bean.PhoneNumber.person&apos;&#x0D;&#x0A;- Getter method name: &apos;getPerson&apos;&#x0D;&#x0A;- Setter method name: &apos;setPerson&apos;&#x0D;&#x0A;- Field visibility: &apos;public&apos;&#x0D;&#x0A;- Use getter and setter methods in declaring type" comments="false" declaring="true" description="Encapsulate field &apos;person&apos;" flags="589830" getter="getPerson" id="org.eclipse.jdt.ui.self.encapsulate" input="/src&lt;in.pwskills.nitin.bean{PhoneNumber.java[PhoneNumber^person" insertion="9" setter="setPerson" stamp="1716825819600" version="1.0" visibility="1"/>
+</session>

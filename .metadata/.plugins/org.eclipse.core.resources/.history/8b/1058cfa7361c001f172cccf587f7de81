@@ -1,0 +1,19 @@
+package in.pwskills.nitin.bean;
+
+import java.io.Serializable;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="PHONE_NUM_ONE_TWO_MANY_UNI")
+public class PhoneNumber implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	
+
+}

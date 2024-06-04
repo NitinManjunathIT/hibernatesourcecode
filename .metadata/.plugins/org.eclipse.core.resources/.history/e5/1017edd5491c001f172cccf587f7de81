@@ -1,0 +1,50 @@
+package in.pwskills.nitin.bean;
+
+import java.io.Serializable;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "PATIENT_MTM_BI")
+public class Patient implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	private Integer patId;
+	private String patName;
+	private String problem;
+
+	public Integer getPatId() {
+		return patId;
+	}
+
+	public void setPatId(Integer patId) {
+		this.patId = patId;
+	}
+
+	public String getPatName() {
+		return patName;
+	}
+
+	public void setPatName(String patName) {
+		this.patName = patName;
+	}
+
+	public String getProblem() {
+		return problem;
+	}
+
+	public void setProblem(String problem) {
+		this.problem = problem;
+	}
+
+	@Override
+	public String toString() {
+		return "Patient [patId=" + patId + ", patName=" + patName + ", problem=" + problem + "]";
+	}
+
+}

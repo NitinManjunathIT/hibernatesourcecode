@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename Java project &apos;Hiberante-04-hikaricp-connecitonpool&apos; to &apos;Hiberante-08-hikaricp-connecitonpool&apos;&#x0D;&#x0A;- Original element: &apos;Hiberante-04-hikaricp-connecitonpool&apos;&#x0D;&#x0A;- Renamed element: &apos;Hiberante-04-hikaricp-connecitonpool&apos;&#x0D;&#x0A;- Update references to refactored element" description="Rename Java project &apos;Hiberante-04-hikaricp-connecitonpool&apos;" flags="7" id="org.eclipse.jdt.ui.rename.java.project" input="=Hiberante-04-hikaricp-connecitonpool" name="Hiberante-08-hikaricp-connecitonpool" references="true" stamp="1715419970193" version="1.0"/>
+</session>

@@ -1,0 +1,73 @@
+package in.pwskills.nitin.dao;
+
+import java.util.List;
+import java.util.Set;
+
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
+import org.hibernate.query.Query;
+
+import in.pwskills.nitin.bean.Person;
+import in.pwskills.nitin.bean.PhoneNumber;
+import in.pwskills.nitin.util.HibernateUtil;
+
+public class PersonDaoImpl implements IPersonDao {
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public void loadRecordUsingJoinsParentToChild() {
+
+		Session session = null;
+
+		try {
+			session = HibernateUtil.getSession();
+
+			String  HQL_INNER_JOIN="select per.pid,per.pname,per.paddress,num.regNo,num.mobileNo,num.type,num.provider from Person per  inner join per.numbers num ";
+			Query<Object[]> query = session.createQuery(HQL_INNER_JOIN);
+			List<Person> parents = query.getResultList();
+			parents.forEach(parent -> {
+				System.out.println(parent);
+				Set<PhoneNumber> childs = parent.getNumbers();
+				childs.forEach(child -> System.out.println(child));
+			});
+
+		} catch (HibernateException he) {
+			he.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			HibernateUtil.closeSession(session);
+			HibernateUtil.closeSessionFactory();
+		}
+
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public void loadRecordUsingJoinsChildToParent() {
+
+		Session session = null;
+
+		try {
+			session = HibernateUtil.getSession();
+
+			Query<Person> query = session.createQuery("from Person");
+			List<Person> parents = query.getResultList();
+			parents.forEach(parent -> {
+				System.out.println(parent);
+				Set<PhoneNumber> childs = parent.getNumbers();
+				childs.forEach(child -> System.out.println(child));
+			});
+
+		} catch (HibernateException he) {
+			he.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			HibernateUtil.closeSession(session);
+			HibernateUtil.closeSessionFactory();
+		}
+
+	}
+
+}

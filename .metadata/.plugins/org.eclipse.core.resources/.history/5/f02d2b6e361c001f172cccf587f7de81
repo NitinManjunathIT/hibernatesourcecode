@@ -1,0 +1,25 @@
+package in.pwskills.nitin.bean;
+
+import java.io.Serializable;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="PERSON_ONE_TO_MANY_UNI")
+public class Person implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	
+	private Integer pid;
+	private String pname;
+	private String paddress;
+	
+	
+	
+
+}

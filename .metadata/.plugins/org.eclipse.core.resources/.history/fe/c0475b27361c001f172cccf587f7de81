@@ -1,0 +1,19 @@
+package in.pwskills.nitin.main;
+
+import java.time.LocalDate;
+
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+
+import in.pwskills.nitin.bean.CardPayment;
+import in.pwskills.nitin.bean.ChequePayment;
+import in.pwskills.nitin.util.HibernateUtil;
+
+public class MainApp {
+
+	public static void main(String[] args) {
+
+		
+	}
+}

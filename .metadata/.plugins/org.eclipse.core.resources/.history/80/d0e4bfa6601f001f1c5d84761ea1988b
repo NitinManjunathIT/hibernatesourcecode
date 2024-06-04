@@ -1,0 +1,21 @@
+package in.pwskills.nitin.main;
+
+import org.hibernate.HibernateException;
+
+public class ClientApp1 {
+	public static void main(String[] args) {
+
+		
+		try {
+			
+			
+		}catch(HibernateException he) {
+			he.printStackTrace();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			
+		}
+
+	}
+}

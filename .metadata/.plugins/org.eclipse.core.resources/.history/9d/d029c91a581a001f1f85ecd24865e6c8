@@ -1,0 +1,25 @@
+package in.pwskills.nitin.bean;
+
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+
+import in.pwskills.nitin.util.HibernateUtil;
+
+public class InsertRecordApp {
+
+	public static void main(String[] args) {
+
+		Session session = HibernateUtil.getSession();
+		Transaction transaction = session.beginTransaction();
+		BankAccount account = new BankAccount();
+		account.setBalance(3500.5f);
+		account.setHolderName("sachin");
+		
+		
+		session.save(args);
+		transaction.commit();
+		
+		
+	}
+
+}

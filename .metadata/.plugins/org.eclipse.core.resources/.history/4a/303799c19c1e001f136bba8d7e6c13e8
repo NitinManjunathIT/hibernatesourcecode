@@ -1,0 +1,129 @@
+package in.pwskills.nitin.dao;
+
+import java.time.LocalDate;
+
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+
+import in.pwskills.nitin.bean.Passport;
+import in.pwskills.nitin.bean.Person;
+import in.pwskills.nitin.util.HibernateUtil;
+
+public class PassportDaoImpl implements IPassportDao {
+
+	@Override
+	public void saveRecordUsingParent() {
+
+		Session session = null;
+		Transaction transaction = null;
+		boolean flag = false;
+		try {
+			session = HibernateUtil.getSession();
+			transaction = session.beginTransaction();
+
+			// create a parent object
+			Person person = new Person();
+			person.setPaddress("hyderabadh");
+			person.setPname("cummins");
+
+			// create a child object
+			Passport passport = new Passport();
+			passport.setCountry("AUS");
+			passport.setExprityDate(LocalDate.of(2026, 12, 25));
+
+			// link parent to child
+			passport.setPerson(person);
+
+			// link child to parent
+			person.setPassport(passport);
+
+			// save parent object
+			session.save(person);
+
+			flag = true;
+
+		} catch (HibernateException he) {
+			he.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (transaction != null) {
+				if (flag) {
+					transaction.commit();
+					System.out.println("Record saved to database using Parent(Person)...");
+				} else {
+					transaction.rollback();
+					System.out.println("Record not saved to database Some Problem...");
+				}
+			}
+
+		}
+
+	}
+
+	@Override
+	public void loadRecordUsingParent() {
+		// TODO Auto-generated method stub
+
+		Session session = null;
+
+		try {
+			session = HibernateUtil.getSession();
+
+		} catch (HibernateException he) {
+			he.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			HibernateUtil.closeSession(session);
+			HibernateUtil.closeSessionFactory();
+		}
+
+	}
+
+	@Override
+	public void saveRecordUsingChild() {
+
+		Session session = null;
+		Transaction transaction = null;
+		boolean flag = false;
+		try {
+			session = HibernateUtil.getSession();
+			transaction = session.beginTransaction();
+
+			// create a parent object
+			Person person = new Person();
+			person.setPaddress("chennai");
+			person.setPname("ravindra");
+
+			// create a child object
+			Passport passport = new Passport();
+			passport.setCountry("NZ");
+			passport.setExprityDate(LocalDate.of(2026, 12, 25));
+
+			// link parent to child
+			passport.setPerson(person);
+
+			// link child to parent
+			person.setPassport(passport);
+
+			flag = true;
+
+		} catch (HibernateException he) {
+			he.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (transaction != null) {
+				if (flag) {
+					transaction.commit();
+					System.out.println("Saving record using child(library)...");
+				} else {
+					transaction.rollback();
+					System.out.println("Some problem with insertion...");
+				}
+			}
+		}
+	}
+}

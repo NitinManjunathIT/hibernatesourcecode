@@ -1,0 +1,30 @@
+package in.pwskills.nitin.bean;
+
+import java.io.Serializable;
+import java.time.LocalDate;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="PASSPORT_ONE_ONE_FK_BI")
+public class Passport implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	private Integer passportNo;
+	private String country;
+	private LocalDate exprityDate;
+	
+	
+	
+
+}

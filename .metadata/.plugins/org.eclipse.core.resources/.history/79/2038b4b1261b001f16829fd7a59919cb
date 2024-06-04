@@ -1,0 +1,14 @@
+package in.pwskills.nitin.bean;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="PAYMENT_TBCH")
+public class Payment {
+
+	private Integer pid;
+	private Float amount;
+	
+	
+}

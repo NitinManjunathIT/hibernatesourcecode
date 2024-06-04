@@ -1,0 +1,46 @@
+package in.pwskills.nitin.main;
+
+import java.util.List;
+
+import org.hibernate.Filter;
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+import org.hibernate.query.Query;
+
+import in.pwskills.nitin.bean.BankAccount;
+import in.pwskills.nitin.util.HibernateUtil;
+
+public class DeleteRecordApp {
+
+	public static void main(String[] args) {
+
+		Session session = null;
+		Transaction transaction = null;
+		Boolean flag = false;
+
+		try {
+			session = HibernateUtil.getSession();
+			transaction = session.beginTransaction();
+			
+			BankAccount account = new BankAccount();
+			account.setAccNo(1);
+
+			flag = true;
+		} catch (HibernateException he) {
+			he.printStackTrace();
+		} finally {
+
+			if (flag) {
+				transaction.commit();
+			} else {
+				transaction.rollback();
+			}
+
+			HibernateUtil.closeSession(session);
+			HibernateUtil.closeSessionFactory();
+		}
+
+	}
+
+}

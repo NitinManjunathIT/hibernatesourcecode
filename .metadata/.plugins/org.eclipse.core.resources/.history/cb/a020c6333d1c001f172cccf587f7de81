@@ -1,0 +1,10 @@
+package in.pwskills.nitin.dao;
+
+public interface IPersonDao {
+	public void saveRecordUsingParent();
+	public void loadRecordUsingParent();
+	public void addChildToExistingParent();
+	
+	//delete operations
+	public void deleteAllChildsOfAParent();
+}

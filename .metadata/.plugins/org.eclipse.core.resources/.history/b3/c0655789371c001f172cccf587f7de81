@@ -1,0 +1,9 @@
+package in.pwskills.nitin.main;
+
+public class MainApp {
+
+	public static void main(String[] args) {
+
+		
+	}
+}

@@ -1,0 +1,21 @@
+package in.pwskills.nitin.bean;
+
+import java.io.Serializable;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "STUDENT_INO")
+public class StudentInfo implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	private Integer sid;
+	private String sname;
+	private Float avg;
+
+}

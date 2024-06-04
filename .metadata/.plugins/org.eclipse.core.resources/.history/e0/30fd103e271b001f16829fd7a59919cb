@@ -1,0 +1,21 @@
+package in.pwskills.nitin.bean;
+
+import java.time.LocalDate;
+
+import javax.persistence.Entity;
+
+@Entity
+public class ChequePayment extends Payment {
+	private Long chequeNo;
+	private String chequeType;
+	private LocalDate expriyDate;
+	
+	
+	@Override
+	public String toString() {
+		return "ChequePayment [chequeNo=" + chequeNo + ", chequeType=" + chequeType + ", expriyDate=" + expriyDate
+				+ "]";
+	}
+	
+	
+}

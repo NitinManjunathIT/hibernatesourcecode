@@ -1,0 +1,9 @@
+package in.pwskills.nitin.bean;
+
+import java.time.LocalDate;
+
+public class ChequePayment extends Payment {
+	private Long chequeNo;
+	private String chequeType;
+	private LocalDate expriyDate;
+}

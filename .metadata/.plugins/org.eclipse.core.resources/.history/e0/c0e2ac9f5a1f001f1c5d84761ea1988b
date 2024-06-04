@@ -1,0 +1,52 @@
+package in.pwskills.nitin.dao;
+
+import java.util.List;
+
+import javax.persistence.criteria.CriteriaUpdate;
+
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
+import org.hibernate.query.Query;
+
+import in.pwskills.nitin.util.HibernateUtil;
+
+public class PersonDaoImpl implements IPersonDao {
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public void loadRecordUsingHQLJoin() {
+
+		Session session = null;
+
+		try {
+			session = HibernateUtil.getSession();
+
+			String HQL_INNER_JOIN = "";
+			Query<Object[]> query = session.createQuery(HQL_INNER_JOIN);
+			List<Object[]> records = query.getResultList();
+			records.forEach(record -> {
+				for (Object row : records) {
+					System.out.println(row);
+
+				}
+				System.out.println();
+
+			});
+
+		} catch (HibernateException he) {
+			he.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			HibernateUtil.closeSession(session);
+			HibernateUtil.closeSessionFactory();
+		}
+
+	}
+
+	@Override
+	public void loadRecordUsingQBCFetchTypeJoin() {
+		// TODO Auto-generated method stub
+
+	}
+}

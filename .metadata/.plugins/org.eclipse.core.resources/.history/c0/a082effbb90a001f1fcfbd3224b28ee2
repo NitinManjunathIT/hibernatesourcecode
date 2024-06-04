@@ -1,0 +1,55 @@
+package in.pwskills.nitin.main;
+
+import java.util.Scanner;
+
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
+
+import in.pwskills.nitin.bean.Student;
+import in.pwskills.nitin.util.HibernateUtil;
+
+public class GetRecordApp {
+
+	public static void main(String[] args) {
+
+		Session session = null;
+		Scanner scanner = null;
+		Student student = null;
+		Integer sid = null;
+
+		try {
+			session = HibernateUtil.getSession();
+			scanner = new Scanner(System.in);
+
+			if (session != null && scanner != null) {
+				System.out.print("Enter the sid value :: ");
+				sid = scanner.nextInt();
+
+				// performing read operation on database
+				student = session.get(Student.class, sid);
+			}
+
+			if (student != null) {
+				System.in.read();
+				System.out.println("STUDENT DETAILS");
+				System.out.println("SNAME  IS :: " + student.getSname());
+				System.out.println("SID    IS :: " + student.getSid());
+				System.out.println("SAGE   IS :: " + student.getSage());
+				System.out.println("SADDR  IS :: " + student.getSaddress());
+			} else {
+				System.out.println("Record not available fro the given id :: " + sid);
+			}
+
+		} catch (HibernateException he) {
+			he.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+
+			if (session != null) {
+				session.close();
+			}
+		}
+	}
+
+}
